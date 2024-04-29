@@ -1,0 +1,828 @@
+/**
+* Template Name: Mamba
+* Template URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
+* Updated: Mar 17 2024 with Bootstrap v5.3.3
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+
+:root {
+  --color-one: #db6000;
+  /* Laranja */
+  --color-two: #db6000;
+  /* Laranja */
+  --color-three: #0a0a0a;
+  /* Preto */
+  --color-four: #ffffff;
+  /* Branco */
+  --color-five: #0a0a0a;
+  /* Preto */
+  --color-six: #ffffff;
+  /* Branco */
+  --color-seven: #171717;
+  /* Preto claro */
+  --color-eight: #ebebeb;
+  /* Branco escuro */
+  --color-nine: #1d1d1d;
+  /* Preto +Claro */
+}
+
+body.dark-mode {
+  --color-one: #0a0a0a;
+  /* Preto */
+  --color-two: #ffffff;
+  /* Branco */
+  --color-three: #db6000;
+  /* Laranja */
+  --color-four: #db6000;
+  /* Laranja */
+  --color-five: #ffffff;
+  /* Branco */
+  --color-six: #0a0a0a;
+  /* Preto */
+
+  --color-eight: #171717;
+  /* Preto claro */
+  --color-seven: #ebebeb;
+  /* Branco escuro */
+
+  --color-nine: #e7e7e7;
+  /* Branco +Claro */
+}
+
+
+body {
+  background-color: var(--color-five);
+  font-family: 'Roboto', sans-serif;  /* Fonte para o corpo do texto */
+  transition: background-color 0.7s, color 0.7s;
+  /* Transição suave para fundo e texto */
+  color: var(--color-six);
+}
+
+
+
+
+.bg-footer {
+  background-color: var(--color-six);
+  transition: background-color 0.7s, color 0.7s;
+  color: var(--color-five);
+}
+
+.nav-link {
+  color: var(--color-four) !important;
+  font-weight: 600;
+  transition: background-color 0.7s, color 0.7s;
+}
+
+.nav-icons {
+  color: var(--color-one) !important;
+}
+
+.navbar-brand {
+  color: var(--color-one) !important;
+  transition: background-color 0.7s, color 0.7s;
+}
+
+.bg-icons {
+  background-color: var(--color-one);
+  color: var(--color-three) !important;
+  transition: background-color 0.7s, color 0.7s;
+}
+
+.bg-box {
+  background-color: var(--color-one);
+  color: var(--color-three) !important;
+  transition: background-color 0.7s, color 0.7s;
+}
+
+.text-color-bar {
+  color: #db6000;
+}
+
+.card-color {
+  background-color: var(--color-seven);
+}
+
+.card-title {
+  color: #db6000 !important;
+}
+
+
+
+.bg-primary {
+  background-color: var(--color-one) !important;
+}
+
+.text-muted {
+  color: #db6000 !important;
+}
+
+
+.button-one {
+  background-color: var(--color-one);
+  color: var(--color-four);
+}
+
+.button-two {
+  background-color: var(--color-two);
+  color: var(--color-three);
+}
+
+.button-three {
+  background-color: var(--color-three);
+  color: var(--color-one);
+}
+
+.button-four {
+  background-color: var(--color-five);
+  color: var(--color-six);
+}
+
+.button-five {
+  background-color: var(--color-six);
+  color: var(--color-five);
+}
+
+.button-six {
+  background-color: var(--color-four);
+  color: var(--color-two);
+}
+
+
+.button-outline-one {
+  border: 2px solid var(--color-one);
+  background: transparent;
+  color: var(--color-four);
+}
+
+.button-outline-two {
+  border: 2px solid var(--color-two);
+  background: transparent;
+  color: var(--color-three);
+}
+
+.button-outline-three {
+  border: 2px solid var(--color-three);
+  background: transparent;
+  color: var(--color-one);
+}
+
+.button-outline-four {
+  border: 2px solid var(--color-five);
+  background: transparent;
+  color: var(--color-six);
+}
+
+.button-outline-five {
+  border: 2px solid var(--color-six);
+  background: transparent;
+  color: var(--color-five);
+}
+
+.button-outline-six {
+  border: 2px solid var(--color-four);
+  background: transparent;
+  color: var(--color-two);
+}
+
+
+.btn-outline-light {
+  border: 2px solid var(--color-four);
+}
+
+
+
+
+.button-six-aluno {
+  margin-left: 15px;
+  display: flex;  
+  align-items: center;  
+  background-color: var(--color-four);
+  color: var(--color-two);
+  font-weight: 800;
+  border: none;  
+  border-radius: 5px;  
+  cursor: pointer;  /* Cursor ao passar o mouse sobre o botão */
+}
+
+.button-six-aluno i {
+  font-size: 18px;  /* Ajustar o tamanho do ícone */
+  margin-right: 8px;  /* Espaçamento entre o ícone e o texto */
+}
+
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Top Bar
+--------------------------------------------------------------*/
+#topbar {
+  padding-top: 8px;  /* Espaçamento interno no topo da seção */
+  padding-bottom: 8px;
+  background-color: var(--color-nine);
+  font-size: 15px;
+  height: 46px;  /* Ajuste a altura para que o conteúdo seja centralizado */
+  width: 100%;  /* Ocupa 100% da largura */
+  display: flex;  /* Usar flexbox para centralizar o conteúdo */
+  justify-content: center;  /* Centraliza horizontalmente */
+  align-items: center;  /* Centraliza verticalmente */
+  box-shadow: inset 0px -15px 10px -10px rgba(65, 65, 65, 0.1);  /* Sombra interna apenas no bottom */
+}
+
+#topbar .contact-info a {
+  line-height: 0;
+  color: #444;
+  transition: 0.3s;
+}
+
+#topbar .contact-info a:hover {
+  color: #428bca;
+}
+
+#topbar .contact-info i {
+
+  line-height: 0;
+  margin-right: 5px;
+}
+
+#topbar .contact-info .phone-icon {
+  margin-left: 15px;
+}
+
+#topbar .social-links a {
+  color: #5c768d;
+  padding: 4px 12px;
+  display: inline-block;
+  line-height: 1px;
+  transition: 0.3s;
+}
+
+
+
+#topbar .social-links a:hover {
+  color: #428bca;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  height: 70px;
+  background-color: var(--color-seven);
+  box-shadow: 0px 15px 10px -10px rgba(29, 29, 29, 0.1);  /* Sombra externa no fundo */
+  z-index: 997;
+ 
+}
+
+#header .logo h1 {
+  font-size: 28px;
+  margin: 0;
+  padding: 10px 0;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+#header .logo h1 a,
+#header .logo h1 a:hover {
+  color: #1c5c93;
+  text-decoration: none;
+}
+
+#header .logo img {
+  padding: 0;
+  margin: 0;
+  max-height: 40px;
+}
+
+.scrolled-offset {
+  margin-top: 70px;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
+.navbar {
+  padding: 0;
+  
+}
+
+
+.menu-left {
+  margin-left: 50px;
+  display: flex;           /* Configura o contêiner como Flexbox */
+  align-items: center;     /* Alinha os itens verticalmente */
+  justify-content: space-between; /* Espaça os itens horizontalmente */
+  padding: 10px;           /* Espaço interno */
+  white-space: nowrap;
+}
+
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar a,
+.navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0 10px 30px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  color: #5c768d;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.navbar a i,
+.navbar a:focus i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover>a {
+  color: #428bca;
+}
+
+.navbar .dropdown ul {
+  display: block;
+  position: absolute;
+  left: 14px;
+  top: 100%;
+  margin: 0;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  background-color: var(--color-five);
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+}
+
+.navbar .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar .dropdown ul a {
+  padding: 10px 20px;
+  text-transform: none;
+}
+
+.navbar .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar .dropdown ul a:hover,
+.navbar .dropdown ul .active:hover,
+.navbar .dropdown ul li:hover>a {
+  color: #428bca;
+}
+
+.navbar .dropdown:hover>ul {
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar .dropdown .dropdown ul {
+  top: 0;
+  left: calc(100% - 30px);
+  visibility: hidden;
+}
+
+.navbar .dropdown .dropdown:hover>ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  visibility: visible;
+}
+
+@media (max-width: 1366px) {
+  .navbar .dropdown .dropdown ul {
+    left: -90%;
+  }
+
+  .navbar .dropdown .dropdown:hover>ul {
+    left: -100%;
+  }
+}
+
+/**
+* Mobile Navigation 
+*/
+.mobile-nav-toggle {
+  color: #1f3548;
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+  line-height: 0;
+  transition: 0.5s;
+}
+
+.mobile-nav-toggle.bi-x {
+  color: #fff;
+}
+
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+}
+
+.navbar-mobile {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(31, 53, 72, 0.9);
+  transition: 0.3s;
+  z-index: 998;
+}
+
+.navbar-mobile .mobile-nav-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.navbar-mobile ul {
+  display: block;
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  padding: 10px 0;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: 0.3s;
+}
+
+.navbar-mobile a,
+.navbar-mobile a:focus {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #1f3548;
+}
+
+.navbar-mobile a:hover,
+.navbar-mobile .active,
+.navbar-mobile li:hover>a {
+  color: #428bca;
+}
+
+.navbar-mobile .getstarted,
+.navbar-mobile .getstarted:focus {
+  margin: 15px;
+}
+
+.navbar-mobile .dropdown ul {
+  position: static;
+  display: none;
+  margin: 10px 20px;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 1;
+  visibility: visible;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+
+.navbar-mobile .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar-mobile .dropdown ul a {
+  padding: 10px 20px;
+}
+
+.navbar-mobile .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar-mobile .dropdown ul a:hover,
+.navbar-mobile .dropdown ul .active:hover,
+.navbar-mobile .dropdown ul li:hover>a {
+  color: #428bca;
+}
+
+.navbar-mobile .dropdown>.dropdown-active {
+  display: block;
+}
+
+
+
+ .menu-container {
+  margin-left: 30px;
+      display: flex;           /* Configura o contêiner como Flexbox */
+      align-items: center;     /* Alinha os itens verticalmente */
+      justify-content: space-between; /* Espaça os itens horizontalmente */
+      padding: 10px;           /* Espaço interno */
+      white-space: nowrap;
+    
+    }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%; /* Posicionar abaixo do elemento pai */
+  background-color: var(--color-seven);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.icon-text-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon-text-container i.arrow {
+  transition: transform 0.3s ease-in-out;
+  transform: rotate(0deg); /* Começa para baixo */
+}
+
+.dropdown:hover .icon-text-container i.arrow {
+  transform: rotate(180deg); /* Rotaciona para cima */
+}
+
+
+
+
+
+.dropdownt {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-contentt {
+  display: none;
+  margin-top: 16px;
+  position: absolute; 
+  left: 0; /* Alinhar com a borda esquerda do elemento pai */
+  top: 100%; /* Posicionar abaixo do elemento pai */
+  background-color: var(--color-five);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdownt:hover .dropdown-contentt  {
+  display: block;
+}
+
+
+
+
+      /* Estilo para o link do dropdown */
+      .dropdown-link {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        text-decoration: none;
+        color: black; /* ou qualquer cor desejada */
+      }
+  
+      /* Estilo para o menu do dropdown */
+      .dropdown-menu {
+        display: none; /* Oculto por padrão */
+        position: absolute;
+        background-color: var(--color-five);
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+  
+      /* Estilo para os links dentro do menu */
+      .dropdown-menu a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+  
+      /* Estilo para hover dentro do menu */
+      .dropdown-menu a:hover {
+      
+      }
+  
+      /* Estilo para abrir o dropdown ao passar o mouse */
+      .dropdown-link:hover .dropdown-menu {
+        display: block;
+      }
+
+
+/**
+* EU CRIEI DAQUI
+*/
+
+.tel-link {
+  
+  color: var(--color-four) !important;
+  text-decoration: none !important; /* Remover sublinhado */
+  white-space: nowrap; /* Impede quebra de linha */
+  margin-top: 15px; /* Espaçamento entre elementos no dropdown */
+  display: inline-flex;
+  align-items: center; /* Isso alinha o ícone com o texto */
+}
+
+.bold-text {
+  font-weight: bold; /* Texto mais forte */
+  font-size: 1em;  /* Tamanho maior do texto */
+  color: var(--color-one) !important;
+  white-space: nowrap; /* Impede quebra de linha */
+  
+}
+
+.bold-textt {
+  font-weight: bold; /* Texto mais forte */
+  font-size: 1em;  /* Tamanho maior do texto */
+  white-space: nowrap; /* Impede quebra de linha */
+  font-size: 0.9em; /* Diminuir o tamanho do texto */
+  color: gray;     /* Cor cinza */
+  text-decoration: none; /* Remover sublinhado */
+ 
+  margin-top: 15px; /* Espaçamento entre elementos no dropdown */
+  display: inline-flex;
+  align-items: center; /* Isso alinha o ícone com o texto */
+  
+}
+
+.link-convenio {
+  padding: 7px;
+  font-size: 1em;  /* Tamanho maior do texto */
+  white-space: nowrap; /* Impede quebra de linha */
+}
+
+
+.icon-text-container {
+  display: flex; /* Alinhamento flexível */
+  align-items: center; /* Alinhar ao centro na vertical */
+  
+}
+
+.icon-text-container span {
+  font-size: 1em; /* Tamanho do texto */
+}
+
+
+.logo {
+  width: 150px;
+}
+
+
+
+
+
+.nav-item {
+  padding: 0.5rem 0xp;
+}
+
+.dropdown-hover:hover>.dropdown-menu {
+display: inline-block;
+}
+
+.dropdown-hover>.dropdown-toggle:active {
+/*Without this, clicking will make it sticky*/
+pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* Layout flex para alinhar a lua, switch e sol */
+ .switch-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Centraliza o switch */
+  gap: 10px;
+  /* Espaçamento entre elementos */
+  padding: 10px;
+}
+
+/* Estilo do switch para posicionar no centro */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin: 0;
+  /* Remove margens extras */
+}
+
+/* Estilo do switch */
+.switch input {
+  opacity: 0;
+  /* Oculta o checkbox */
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  /* Cor para modo claro */
+  transition: 0.4s;
+  border-radius: 10px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+/* Se o checkbox está marcado, muda o switch */
+.switch input:checked+.slider {
+  background-color: #333;
+  /* Cor para modo escuro */
+}
+
+.slider:before {
+  transition: 0.4s;
+  /* Suaviza a transição do switch */
+}
+
+.switch input:checked+.slider:before {
+  transform: translateX(20px);
+  /* Move o botão para o outro lado */
+}
+
+/* Estilo para ícones */
+.icon {
+  width: 20px;
+  /* Ajusta largura do ícone */
+}
