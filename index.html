@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Modern Business - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="d-flex flex-column h-100">
+    <style>
+        /* Layout flex para alinhar a lua, switch e sol */
+        .switch-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Centraliza o switch */
+            gap: 10px;
+            /* Espaçamento entre elementos */
+            padding: 10px;
+        }
+
+        /* Estilo do switch para posicionar no centro */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            margin: 0;
+            /* Remove margens extras */
+        }
+
+        /* Estilo do switch */
+        .switch input {
+            opacity: 0;
+            /* Oculta o checkbox */
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            /* Cor para modo claro */
+            transition: 0.4s;
+            border-radius: 10px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: 0.4s;
+        }
+
+        /* Se o checkbox está marcado, muda o switch */
+        .switch input:checked+.slider {
+            background-color: #333;
+            /* Cor para modo escuro */
+        }
+
+        .slider:before {
+            transition: 0.4s;
+            /* Suaviza a transição do switch */
+        }
+
+        .switch input:checked+.slider:before {
+            transform: translateX(20px);
+            /* Move o botão para o outro lado */
+        }
+
+        /* Estilo para ícones */
+        .icon {
+            width: 20px;
+            /* Ajusta largura do ícone */
+        }
+    </style>
+    <style>
+        :root {
+            --color-one: #db6000;
+            /* Laranja */
+            --color-two: #db6000;
+            /* Laranja */
+            --color-three: #0a0a0a;
+            /* Preto */
+            --color-four: #ffffff;
+            /* Branco */
+            --color-five: #0a0a0a;
+            /* Preto */
+            --color-six: #ffffff;
+            /* Branco */
+            --color-seven: #171717;
+            /* Preto claro */
+            --color-eight: #e4e4e4;
+            /* Branco escuro */
+        }
+
+        body.dark-mode {
+            --color-one: #0a0a0a;
+            /* Preto */
+            --color-two: #ffffff;
+            /* Branco */
+            --color-three: #db6000;
+            /* Laranja */
+            --color-four: #db6000;
+            /* Laranja */
+            --color-five: #ffffff;
+            /* Branco */
+            --color-six: #0a0a0a;
+            /* Preto */
+
+            --color-eight: #171717;
+            /* Preto claro */
+            --color-seven: #e4e4e4;
+            /* Branco escuro */
+        }
+
+
+        body {
+            background-color: var(--color-five);
+            transition: background-color 0.7s, color 0.7s; /* Transição suave para fundo e texto */
+            color: var(--color-six);
+        }
+
+
+        .bg-footer {
+            background-color: var(--color-six);
+            transition: background-color 0.7s, color 0.7s;
+            color: var(--color-five);
+        }
+
+        .nav-link {
+            color: var(--color-one) !important;
+            transition: background-color 0.7s, color 0.7s;
+        }
+
+        .navbar-brand {
+            color: var(--color-one) !important;
+            transition: background-color 0.7s, color 0.7s;
+        }
+
+        .bg-icons {
+            background-color: var(--color-one);
+            color: var(--color-three) !important;
+            transition: background-color 0.7s, color 0.7s;
+        }
+
+        .bg-box {
+            background-color: var(--color-one);
+            color: var(--color-three) !important;
+            transition: background-color 0.7s, color 0.7s;
+        }
+
+        .text-color-bar {
+            color: #db6000;
+        }
+
+        .card-color {
+            background-color: var(--color-seven);
+        }
+
+        .card-title {
+            color: #db6000 !important;
+        }
+
+        nav {
+            background-color: var(--color-seven);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .bg-primary {
+            background-color: var(--color-one) !important;
+        }
+
+        .text-muted {
+            color: #db6000 !important;
+        }
+
+
+        .button-one {
+            background-color: var(--color-one);
+            color: var(--color-four);
+        }
+
+        .button-two {
+            background-color: var(--color-two);
+            color: var(--color-three);
+        }
+
+        .button-three {
+            background-color: var(--color-three);
+            color: var(--color-one);
+        }
+
+        .button-four {
+            background-color: var(--color-five);
+            color: var(--color-six);
+        }
+
+        .button-five {
+            background-color: var(--color-six);
+            color: var(--color-five);
+        }
+
+        .button-six {
+            background-color: var(--color-four);
+            color: var(--color-two);
+        }
+
+
+        .button-outline-one {
+            border: 2px solid var(--color-one);
+            background: transparent;
+            color: var(--color-four);
+        }
+
+        .button-outline-two {
+            border: 2px solid var(--color-two);
+            background: transparent;
+            color: var(--color-three);
+        }
+
+        .button-outline-three {
+            border: 2px solid var(--color-three);
+            background: transparent;
+            color: var(--color-one);
+        }
+
+        .button-outline-four {
+            border: 2px solid var(--color-five);
+            background: transparent;
+            color: var(--color-six);
+        }
+
+        .button-outline-five {
+            border: 2px solid var(--color-six);
+            background: transparent;
+            color: var(--color-five);
+        }
+
+        .button-outline-six {
+            border: 2px solid var(--color-four);
+            background: transparent;
+            color: var(--color-two);
+        }
+
+
+        .btn-outline-light {
+            border: 2px solid var(--color-four);
+        }
+    </style>
+    <main class="flex-shrink-0">
+
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container px-5">
+                <div class="switch-container">
+                <!-- Ícone da lua para modo escuro -->
+                <div class="icon moon" id="moon-icon">
+                    <span class="material-icons">nights_stay</span> <!-- Ícone de lua -->
+                </div>
+
+                <!-- Switch para alternar entre modos -->
+                <label class="switch">
+                    <input type="checkbox" id="colorMode">
+                    <span class="slider"></span>
+                </label>
+
+                <!-- Ícone do sol para modo claro -->
+                <div class="icon sun" id="sun-icon">
+                    <span class="material-icons">wb_sunny</span> <!-- Ícone de sol -->
+                </div>
+            </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="gabarito.html">Gabarito</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+        </nav>
+        <!-- Header-->
+        <header class="py-5">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center justify-content-center">
+                    <div class="col-lg-8 col-xl-7 col-xxl-6">
+                        <div class="my-5 text-center text-xl-start">
+                            <h1 class="display-5 fw-bolder mb-2">A Bootstrap 5 template for modern businesses</h1>
+                            <p class="lead fw-normal mb-4">Quickly design and customize responsive mobile-first sites
+                                with Bootstrap, the world’s most popular front-end open source toolkit!</p>
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+
+                                <a class="btn button-one btn-lg px-4 me-sm-3" href="#features">Get Started</a>
+
+
+
+                                <a class="btn button-outline-one btn-lg px-4" href="#!">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5"
+                            src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
+                </div>
+            </div>
+        </header>
+        <!-- Features section-->
+        <section class="py-5" id="features">
+            <div class="container px-5 my-5">
+                <div class="row gx-5">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h2 class="fw-bolder mb-0">A better way to start building.</h2>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row gx-5 row-cols-1 row-cols-md-2">
+                            <div class="col mb-5 h-100">
+                                <div class="feature bg-icons rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                                <h2 class="h5">Featured title</h2>
+                                <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is
+                                    just a bit more text.</p>
+                            </div>
+                            <div class="col mb-5 h-100">
+                                <div class="feature bg-icons rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                                <h2 class="h5">Featured title</h2>
+                                <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is
+                                    just a bit more text.</p>
+                            </div>
+                            <div class="col mb-5 mb-md-0 h-100">
+                                <div class="feature bg-icons rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                                <h2 class="h5">Featured title</h2>
+                                <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is
+                                    just a bit more text.</p>
+                            </div>
+                            <div class="col h-100">
+                                <div class="feature bg-icons rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                                <h2 class="h5">Featured title</h2>
+                                <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is
+                                    just a bit more text.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonial section-->
+        <div class="py-5">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-10 col-xl-7">
+                        <div class="text-center">
+                            <div class="text-color fs-4 mb-4 fst-italic">"Working with Start Bootstrap templates has
+                                saved me tons of development time when building new projects! Starting with a Bootstrap
+                                template just makes things easier!"</div>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d"
+                                    alt="..." />
+                                <div class="fw-bold">
+                                    Tom Ato
+                                    <span class="fw-bold text-color-bar mx-1">/</span>
+                                    CEO, Pomodoro
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog preview section-->
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6">
+                        <div class="text-center">
+                            <h2 class="fw-bolder">From our blog</h2>
+                            <p class="lead fw-normal text-muted mb-5">Lorem ipsum, dolor sit amet consectetur
+                                adipisicing elit. Eaque fugit ratione dicta mollitia. Officiis ad.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gx-5">
+                    <div class="col-lg-4 mb-5">
+                        <div class="card-color card h-100 shadow border-0">
+                            <img class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
+                                <a class="text-decoration-none link-dark stretched-link" href="#!">
+                                    <h5 class="card-title mb-3">Blog post title</h5>
+                                </a>
+                                <p class="card-text mb-0">Some quick example text to build on the card title and make up
+                                    the bulk of the card's content.</p>
+                            </div>
+                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                <div class="d-flex align-items-end justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle me-3"
+                                            src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                        <div class="small">
+                                            <div class="fw-bold">Kelly Rowan</div>
+                                            <div class="text-muted">March 12, 2023 &middot; 6 min read</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-5">
+                        <div class="card-color card h-100 shadow border-0">
+                            <img class="card-img-top" src="https://dummyimage.com/600x350/adb5bd/495057" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">Media</div>
+                                <a class="text-decoration-none link-dark stretched-link" href="#!">
+                                    <h5 class="card-title mb-3">Another blog post title</h5>
+                                </a>
+                                <p class="card-text mb-0">This text is a bit longer to illustrate the adaptive height of
+                                    each card. Some quick example text to build on the card title and make up the bulk
+                                    of the card's content.</p>
+                            </div>
+                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                <div class="d-flex align-items-end justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle me-3"
+                                            src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                        <div class="small">
+                                            <div class="fw-bold">Josiah Barclay</div>
+                                            <div class="text-muted">March 23, 2023 &middot; 4 min read</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-5">
+                        <div class="card-color card h-100 shadow border-0">
+                            <img class="card-img-top" src="https://dummyimage.com/600x350/6c757d/343a40" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
+                                <a class="text-decoration-none link-dark stretched-link" href="#!">
+                                    <h5 class="card-title mb-3">The last blog post title is a little bit longer than the
+                                        others</h5>
+                                </a>
+                                <p class="card-text mb-0">Some more quick example text to build on the card title and
+                                    make up the bulk of the card's content.</p>
+                            </div>
+                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                <div class="d-flex align-items-end justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle me-3"
+                                            src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                        <div class="small">
+                                            <div class="fw-bold">Evelyn Martinez</div>
+                                            <div class="text-muted">April 2, 2023 &middot; 10 min read</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Call to action-->
+                <aside class="bg-box rounded-3 p-4 p-sm-5 mt-5">
+                    <div
+                        class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
+                        <div class="mb-4 mb-xl-0">
+                            <div class="fs-3 fw-bold">New products, delivered to you.</div>
+                            <div>Sign up for our newsletter for the latest updates.</div>
+                        </div>
+                        <div class="ms-xl-4">
+                            <div class="input-group mb-2">
+                                <input class="form-control" type="text" placeholder="Email address..."
+                                    aria-label="Email address..." aria-describedby="button-newsletter" />
+                                <button class="btn btn-outline-light" id="button-newsletter" type="button">Sign
+                                    up</button>
+                            </div>
+                            <div class="small text-white-50">We care about privacy, and will never share your data.
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+    <!-- Footer-->
+    <footer class="bg-footer py-4 mt-auto">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto">
+                    <div class="small m-0">Copyright &copy; Your Website 2023</div>
+                </div>
+                <div class="col-auto">
+                    <a class="small" href="#!">Privacy</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="small" href="#!">Terms</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="small" href="#!">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const colorMode = document.getElementById("colorMode");
+        const sunIcon = document.getElementById("sun-icon");
+        const moonIcon = document.getElementById("moon-icon");
+
+        // Função para alternar modos com transição suave
+const setMode = (isDark) => {
+    document.body.classList.toggle("dark-mode", isDark); // Alterna modo escuro
+    document.body.classList.toggle("light-mode", !isDark); // Alterna modo claro
+    
+    // Se preferir, pode adicionar um pequeno delay para garantir que a transição seja suave
+    setTimeout(() => {
+        if (isDark) {
+            sunIcon.style.color = "darkorange";
+            moonIcon.style.color = "lightgray";
+        } else {
+            sunIcon.style.color = "lightgoldenrodyellow";
+            moonIcon.style.color = "darkslategray";
+        }
+    }, 200); // Ajuste o tempo de atraso se necessário
+};
+
+// Alternador para o switch
+colorMode.addEventListener("change", (event) => {
+    setMode(event.target.checked);
+});
+
+// Definir modo com base na preferência do sistema
+const prefersDarkMode = window.matchMedia("(prefers-color-scheme: light)").matches;
+colorMode.checked = prefersDarkMode;
+setMode(prefersDarkMode);
+
+    </script>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

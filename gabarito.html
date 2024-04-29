@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Documentation</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="d-flex flex-column h-100">
+    <style>
+        /* Layout flex para alinhar a lua, switch e sol */
+        .switch-container {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centraliza o switch */
+            gap: 10px; /* Espaçamento entre elementos */
+            padding: 10px;
+        }
+
+        /* Estilo do switch para posicionar no centro */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            margin: 0; /* Remove margens extras */
+        }
+
+        /* Estilo do switch */
+        .switch input {
+            opacity: 0; /* Oculta o checkbox */
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc; /* Cor para modo claro */
+            transition: 0.4s;
+            border-radius: 10px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: 0.4s;
+        }
+
+        /* Se o checkbox está marcado, muda o switch */
+        .switch input:checked + .slider {
+            background-color: #333; /* Cor para modo escuro */
+        }
+
+        .slider:before {
+            transition: 0.4s; /* Suaviza a transição do switch */
+        }
+
+        .switch input:checked + .slider:before {
+            transform: translateX(20px); /* Move o botão para o outro lado */
+        }
+        
+        /* Estilo para ícones */
+        .icon {
+            width: 20px; /* Ajusta largura do ícone */
+        }
+    </style>
+    <style>
+        :root {
+            --color-one: #db6000;
+            /* Laranja */
+            --color-two: #db6000;
+            /* Laranja */
+            --color-three: #0a0a0a;
+            /* Preto */
+            --color-four: #ffffff;
+            /* Branco */
+            --color-five: #0a0a0a;
+            /* Preto */
+            --color-six: #ffffff;
+            /* Branco */
+        }
+
+        body.dark-mode {
+            --color-one: #0a0a0a;
+            /* Preto */
+            --color-two: #ffffff;
+            /* Branco */
+            --color-three: #db6000;
+            /* Laranja */
+            --color-four: #db6000;
+            /* Laranja */
+            --color-five: #ffffff;
+            /* Branco */
+            --color-six: #0a0a0a;
+            /* Preto */
+        }
+
+
+        .dark-background {
+            background-color: var(--color-five);
+            color: var(--color-six);
+        }
+
+        .light-background {
+            background-color: var(--color-six);
+            color: var(--color-five);
+        }
+
+
+
+        .color-body {
+            background-color: #db6000;
+            height: 100vh;
+        }
+
+
+        .button-one {
+            background-color: var(--color-one);
+            color: var(--color-four);
+        }
+
+        .button-two {
+            background-color: var(--color-two);
+            color: var(--color-three);
+        }
+
+        .button-three {
+            background-color: var(--color-three);
+            color: var(--color-one);
+        }
+
+        .button-four {
+            background-color: var(--color-five);
+            color: var(--color-six);
+        }
+
+        .button-five {
+            background-color: var(--color-six);
+            color: var(--color-five);
+        }
+
+        .button-six {
+            background-color: var(--color-four);
+            color: var(--color-two);
+        }
+
+
+        .button-outline-one {
+            border: 2px solid var(--color-one);
+            background: transparent;
+            color: var(--color-four);
+        }
+
+        .button-outline-two {
+            border: 2px solid var(--color-two);
+            background: transparent;
+            color: var(--color-three);
+        }
+
+        .button-outline-three {
+            border: 2px solid var(--color-three);
+            background: transparent;
+            color: var(--color-one);
+        }
+
+        .button-outline-four {
+            border: 2px solid var(--color-five);
+            background: transparent;
+            color: var(--color-six);
+        }
+
+        .button-outline-five {
+            border: 2px solid var(--color-six);
+            background: transparent;
+            color: var(--color-five);
+        }
+
+        .button-outline-six {
+            border: 2px solid var(--color-four);
+            background: transparent;
+            color: var(--color-two);
+        }
+    </style>
+    <main class="color-body">
+
+        <div class="switch-container">
+            <!-- Ícone da lua para modo escuro -->
+            <div class="icon moon" id="moon-icon">
+                <span class="material-icons">nights_stay</span> <!-- Ícone de lua -->
+            </div>
+    
+            <!-- Switch para alternar entre modos -->
+            <label class="switch">
+                <input type="checkbox" id="colorMode">
+                <span class="slider"></span>
+            </label>
+    
+            <!-- Ícone do sol para modo claro -->
+            <div class="icon sun" id="sun-icon">
+                <span class="material-icons">wb_sunny</span> <!-- Ícone de sol -->
+            </div>
+        </div>
+        <!-- Gabaritos -->
+        <section class="light-background">
+            <div class="p-4 container px-7 my-7">
+                <div class="col-lg-4 mb-5 mb-lg-3 text-center">
+                    <h2 class="fw-bolder mb-0">Buttons/Dark</h2>
+                </div>
+                <div class="col-12">
+                    <div class="row justify-content-center row-cols-1 row-cols-md-5 gx-3">
+                        <a class="btn button-one btn-lg me-2">button-one</a>
+                        <a class="btn button-two btn-lg me-2">button-two</a>
+                        <a class="btn button-three btn-lg">button-three</a>
+                    </div>
+                    <div class="row justify-content-center row-cols-1 row-cols-md-5 gx-3 mt-2">
+                        <a class="btn button-four btn-lg me-2">button-four</a>
+                        <a class="btn button-five btn-lg me-2">button-five</a>
+                        <a class="btn button-six btn-lg">button-six</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="dark-background">
+            <div class="p-4 container px-7 my-7">
+                <div class="col-lg-4 mb-5 mb-lg-3 text-center">
+                    <h2 class="fw-bolder mb-0">Buttons/Light</h2>
+                </div>
+                <div class="col-12">
+                    <div class="row justify-content-center row-cols-1 row-cols-md-5 gx-3">
+                        <a class="btn button-one btn-lg me-2">button-one</a>
+                        <a class="btn button-two btn-lg me-2">button-two</a>
+                        <a class="btn button-three btn-lg">button-three</a>
+                    </div>
+                    <div class="row justify-content-center row-cols-1 row-cols-md-5 gx-3 mt-2">
+                        <a class="btn button-four btn-lg me-2">button-four</a>
+                        <a class="btn button-five btn-lg me-2">button-five</a>
+                        <a class="btn button-six btn-lg">button-six</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="light-background">
+            <div class="p-4 container px-7 my-7">
+                <div class="col-lg-4 mb-5 mb-lg-3 text-center">
+                    <h2 class="fw-bolder mb-0">Buttons Outline/Dark</h2>
+                </div>
+                <div class="col-12">
+                    <div class="row justify-content-center row-cols-1 row-cols-md-5 gx-3">
+                        <a class="btn button-outline-one btn-lg px-4 me-sm-2">button-outline-one</a>
+                        <a class="btn button-outline-two btn-lg px-4 me-sm-2">button-outline-two</a>
+                        <a class="btn button-outline-three btn-lg px-4 me-sm-2">button-outline-three</a>
+                    </div>
+                    <div class="row justify-content-center row-cols-1 row-cols-md-5 gx-3 mt-2">
+                        <a class="btn button-outline-four btn-lg px-4 me-sm-2">button-outline-four</a>
+                        <a class="btn button-outline-five btn-lg px-4 me-sm-2">button-outline-five</a>
+                        <a class="btn button-outline-six btn-lg px-4 me-sm-2">button-outline-six</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="dark-background">
+            <div class="p-4 container px-7 my-7">
+                <div class="col-lg-4 mb-5 mb-lg-3 text-center">
+                    <h2 class="fw-bolder mb-0">Buttons Outline/Light</h2>
+                </div>
+                <div class="col-12">
+                    <div class="row justify-content-center row-cols-1 row-cols-md-5 gx-3">
+                        <a class="btn button-outline-one btn-lg px-4 me-sm-2">button-outline-one</a>
+                        <a class="btn button-outline-two btn-lg px-4 me-sm-2">button-outline-two</a>
+                        <a class="btn button-outline-three btn-lg px-4 me-sm-2">button-outline-three</a>
+                    </div>
+                    <div class="row justify-content-center row-cols-1 row-cols-md-5 gx-3 mt-2">
+                        <a class="btn button-outline-four btn-lg px-4 me-sm-2">button-outline-four</a>
+                        <a class="btn button-outline-five btn-lg px-4 me-sm-2">button-outline-five</a>
+                        <a class="btn button-outline-six btn-lg px-4 me-sm-2">button-outline-six</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+
+    <script>
+        const colorMode = document.getElementById("colorMode");
+        const sunIcon = document.getElementById("sun-icon");
+        const moonIcon = document.getElementById("moon-icon");
+
+        const setMode = (isDark) => {
+            // Alterna entre modos
+            document.body.classList.toggle("dark-mode", isDark);
+            document.body.classList.toggle("light-mode", !isDark);
+            
+            // Altera a cor dos ícones
+            if (isDark) {
+                sunIcon.style.color = "darkorange";
+                moonIcon.style.color = "lightgray";
+            } else {
+                sunIcon.style.color = "lightgoldenrodyellow";
+                moonIcon.style.color = "darkslategray";
+            }
+        };
+
+        colorMode.addEventListener("change", (event) => {
+            setMode(event.target.checked);
+        });
+
+        // Define o modo com base na preferência do sistema
+        const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        colorMode.checked = prefersDarkMode;
+        setMode(prefersDarkMode);
+    </script>
+
+
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
